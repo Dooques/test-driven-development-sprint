@@ -14,21 +14,22 @@ namespace TestDrivenDevelopment
 
         public Compass()
         {
+            Point = Point.NORTH;
         }
 
         public static Point Rotate(Direction direction, Point point)
         {
             List<Point> points = new() { Point.NORTH, Point.EAST, Point.SOUTH, Point.WEST };
-            var pointIndex = points.FindIndex(0, points.Count - 1, i => i.Equals(point));
+            var pointIndex = points.FindIndex(0, points.Count, i => i.Equals(point));
 
             switch (direction)
             {
                 case Direction.RIGHT:
-                    if (pointIndex < 0)
+                    if (pointIndex == -1)
                     {
                         throw new InvalidDataException("This Point does not exist");
                     }
-                    else if (pointIndex > points.Count - 1)
+                    else if (pointIndex == points.Count - 1)
                     {
                         return points[0];
                     }
@@ -38,11 +39,11 @@ namespace TestDrivenDevelopment
                     }
 
                 case Direction.LEFT:
-                    if (pointIndex < 0)
+                    if (pointIndex == -1)
                     {
                         throw new InvalidDataException("This Point does not exist");
                     }
-                    else if (pointIndex < 1)
+                    else if (pointIndex == 0)
                     {
                         return points[points.Count - 1];
                     }

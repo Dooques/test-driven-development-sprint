@@ -5,7 +5,10 @@ namespace TestDrivenDevelopment
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            Console.WriteLine(Compass.Rotate(Direction.LEFT, Point.NORTH));
+            Console.WriteLine(Compass.Rotate(Direction.LEFT, Point.EAST));
+            Console.WriteLine(Compass.Rotate(Direction.LEFT, Point.SOUTH));
+            Console.WriteLine(Compass.Rotate(Direction.LEFT, Point.WEST));
         }
     }
 }
